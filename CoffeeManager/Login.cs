@@ -19,12 +19,25 @@ namespace CoffeeManager
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm();
-            this.Hide();
-            mainForm.ShowDialog();
-            this.Show();
+            string userName = txtUserName.Text;
+            string password = txtPassword.Text;
+            if(DangNhap(userName, password))
+            {
+                MainForm mainForm = new MainForm();
+                this.Hide();
+                mainForm.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                string _msg = "wrong userName or password";
+                MessageBox.Show(_msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
+        private bool DangNhap(string userName, string password)
+        {
+            return CoffeeManager.DAL.AccountDAL.Instance.Login(userName, password);
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

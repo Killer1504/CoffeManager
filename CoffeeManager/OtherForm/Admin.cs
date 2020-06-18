@@ -16,25 +16,8 @@ namespace CoffeeManager.OtherForm
         public Admin()
         {
             InitializeComponent();
-            LoadAccount();
         }
 
-        private void LoadAccount()
-        {
-            string connecttionString = @"Data Source=.\sqlexpress;Initial Catalog=QuanLyQuanCafe;Integrated Security=True";
-            SqlConnection connection = new SqlConnection(connecttionString);
-            connection.Open();
-            string query = "SELECT DisplayName FROM dbo.Account";
-            SqlCommand command = new SqlCommand(query, connection);
-
-            DataTable data = new DataTable();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
-            sqlDataAdapter.Fill(data);
-
-            connection.Close();
-
-            dataGridViewAccount.DataSource = data;
-
-        }
+        
     }
 }

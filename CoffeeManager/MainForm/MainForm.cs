@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoffeeManager.DAL;
+using CoffeeManager.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +20,30 @@ namespace CoffeeManager
         }
 
 
+        #region Method
+        private void LoadTable()
+        {
+            List<TableFoodDTO> tableFoods = TableDAL.Instance.LoadTableList();
+            foreach (TableFoodDTO item in tableFoods)
+            {
+                Button button = new Button() { Width = TableFoodDTO.TableWidth, Height = TableFoodDTO.TableHeight };
+                button.Text = item.Name + Environment.NewLine + item.Status;
+                switch (item.Status)
+                {
+                    case "Trống":
+                        button.BackColor = Color.LightGray;
+                        break;
+                    default:
+                        button.BackColor = Color.LightGreen;
+                        break;
+                }
+                flowLayoutPanel.Controls.Add(button);
+
+            }
+        }
+        #endregion
+        #region Event
+
         private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -34,6 +60,12 @@ namespace CoffeeManager
         {
             CoffeeManager.OtherForm.Admin admin = new OtherForm.Admin();
             admin.ShowDialog();
+        }
+        #endregion
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadTable();
         }
     }
 }
