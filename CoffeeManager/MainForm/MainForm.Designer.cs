@@ -49,6 +49,8 @@
             this.personalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDisCount)).BeginInit();
@@ -67,12 +69,17 @@
             // 
             // lvBill
             // 
+            this.lvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lvBill.GridLines = true;
             this.lvBill.HideSelection = false;
             this.lvBill.Location = new System.Drawing.Point(3, 3);
             this.lvBill.Name = "lvBill";
             this.lvBill.Size = new System.Drawing.Size(452, 377);
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
+            this.lvBill.View = System.Windows.Forms.View.Details;
             // 
             // panel2
             // 
@@ -249,6 +256,14 @@
             this.flowLayoutPanel.Size = new System.Drawing.Size(462, 511);
             this.flowLayoutPanel.TabIndex = 4;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "idFood";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Count";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,5 +314,7 @@
         private System.Windows.Forms.ToolStripMenuItem personalInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

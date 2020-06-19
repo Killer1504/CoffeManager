@@ -28,6 +28,8 @@ namespace CoffeeManager
             {
                 Button button = new Button() { Width = TableFoodDTO.TableWidth, Height = TableFoodDTO.TableHeight };
                 button.Text = item.Name + Environment.NewLine + item.Status;
+                button.Tag = item;
+                button.Click += Button_Click;
                 switch (item.Status)
                 {
                     case "Trống":
@@ -41,9 +43,43 @@ namespace CoffeeManager
 
             }
         }
+
+        private void ShowBill(int idTable)
+        {
+            List<BillDTO> billDTOs = DAL.BillDAL.Instance.LoadListBillByIDTable(idTable);
+            lvBill.Items.Clear();
+            if(billDTOs.Count > 0)
+            {
+                foreach (BillDTO item in billDTOs)
+                {
+                    int idBill = item.Id;
+                    List<BillInforDTO> billInforDTOs = new List<BillInforDTO>();
+                    billInforDTOs = DAL.BillInforDAL.Instance.LoadBillInforByIdBill(idBill);
+
+                    if(billInforDTOs.Count > 0)
+                    {
+                        foreach (BillInforDTO bill in billInforDTOs)
+                        {
+                            ListViewItem listViewItem = new ListViewItem(bill.IdFood.ToString());
+                            ListViewItem.ListViewSubItem subItem = new ListViewItem.ListViewSubItem(listViewItem, bill.Count.ToString());
+                            listViewItem.SubItems.Add(subItem);
+                            lvBill.Items.Add(listViewItem);
+                        }
+                    }
+                }
+            }
+        }
+
         #endregion
         #region Event
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            TableFoodDTO item = button.Tag as TableFoodDTO;
+            int idTable = item.ID;
+            ShowBill(idTable);
 
+        }
         private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -61,11 +97,12 @@ namespace CoffeeManager
             CoffeeManager.OtherForm.Admin admin = new OtherForm.Admin();
             admin.ShowDialog();
         }
-        #endregion
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadTable();
         }
+        #endregion
+
+
     }
 }

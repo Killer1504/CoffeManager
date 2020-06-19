@@ -50,7 +50,7 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(9, 10);
+            this.panel1.Location = new System.Drawing.Point(9, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 184);
             this.panel1.TabIndex = 0;
@@ -130,7 +130,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(214, 20);
             this.txtUserName.TabIndex = 0;
-            this.txtUserName.Text = "k9";
+            this.txtUserName.Text = "Hung";
             // 
             // label1
             // 

@@ -31,6 +31,11 @@ namespace CoffeeManager
         }
         private DataProvider()
         { }
+
+
+        /// <summary>
+        /// Use for Select, ...
+        /// </summary>
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
