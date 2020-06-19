@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lvBill = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -92,11 +93,6 @@
             this.numDisCount.Name = "numDisCount";
             this.numDisCount.Size = new System.Drawing.Size(130, 22);
             this.numDisCount.TabIndex = 2;
-            this.numDisCount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // btnSwichTable
             // 
@@ -264,6 +260,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";

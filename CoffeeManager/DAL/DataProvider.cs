@@ -8,6 +8,9 @@ using System.Data.SqlClient;
 
 namespace CoffeeManager
 {
+    /// <summary>
+    /// Execute Query
+    /// </summary>
     public class DataProvider
     {
 
