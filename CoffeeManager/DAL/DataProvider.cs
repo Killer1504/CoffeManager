@@ -34,7 +34,7 @@ namespace CoffeeManager
 
 
         /// <summary>
-        /// Use for Select, ...
+        /// Use for Select, ... procedure
         /// </summary>
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
@@ -98,7 +98,7 @@ namespace CoffeeManager
             return data;
         }
 
-        public object ExecuteNoneScalar(string query, object[] parameter = null)
+        public object ExecuteScalar(string query, object[] parameter = null)
         {
             object data = 0;
             using (SqlConnection connection = new SqlConnection(ConnecttionString))

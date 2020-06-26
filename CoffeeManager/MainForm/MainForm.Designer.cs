@@ -31,7 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lvBill = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.numDisCount = new System.Windows.Forms.NumericUpDown();
             this.btnSwichTable = new System.Windows.Forms.Button();
             this.cbbSwitchTable = new System.Windows.Forms.ComboBox();
@@ -49,8 +55,6 @@
             this.personalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDisCount)).BeginInit();
@@ -71,18 +75,41 @@
             // 
             this.lvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvBill.GridLines = true;
             this.lvBill.HideSelection = false;
             this.lvBill.Location = new System.Drawing.Point(3, 3);
             this.lvBill.Name = "lvBill";
-            this.lvBill.Size = new System.Drawing.Size(452, 377);
+            this.lvBill.Size = new System.Drawing.Size(452, 355);
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 110;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Count";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Price";
+            this.columnHeader3.Width = 106;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Total Price";
+            this.columnHeader4.Width = 110;
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtTotalPrice);
             this.panel2.Controls.Add(this.numDisCount);
             this.panel2.Controls.Add(this.btnSwichTable);
             this.panel2.Controls.Add(this.cbbSwitchTable);
@@ -93,12 +120,33 @@
             this.panel2.Size = new System.Drawing.Size(458, 71);
             this.panel2.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(205, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Total Price";
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPrice.Location = new System.Drawing.Point(208, 35);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
+            this.txtTotalPrice.Size = new System.Drawing.Size(100, 24);
+            this.txtTotalPrice.TabIndex = 3;
+            this.txtTotalPrice.Text = "0";
+            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // numDisCount
             // 
             this.numDisCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numDisCount.Location = new System.Drawing.Point(164, 40);
+            this.numDisCount.Location = new System.Drawing.Point(105, 40);
             this.numDisCount.Name = "numDisCount";
-            this.numDisCount.Size = new System.Drawing.Size(130, 22);
+            this.numDisCount.Size = new System.Drawing.Size(98, 22);
             this.numDisCount.TabIndex = 2;
             // 
             // btnSwichTable
@@ -107,7 +155,7 @@
             this.btnSwichTable.Location = new System.Drawing.Point(3, 10);
             this.btnSwichTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnSwichTable.Name = "btnSwichTable";
-            this.btnSwichTable.Size = new System.Drawing.Size(130, 27);
+            this.btnSwichTable.Size = new System.Drawing.Size(98, 27);
             this.btnSwichTable.TabIndex = 1;
             this.btnSwichTable.Text = "Swich Table";
             this.btnSwichTable.UseVisualStyleBackColor = true;
@@ -117,16 +165,16 @@
             this.cbbSwitchTable.FormattingEnabled = true;
             this.cbbSwitchTable.Location = new System.Drawing.Point(3, 39);
             this.cbbSwitchTable.Name = "cbbSwitchTable";
-            this.cbbSwitchTable.Size = new System.Drawing.Size(130, 21);
+            this.cbbSwitchTable.Size = new System.Drawing.Size(98, 21);
             this.cbbSwitchTable.TabIndex = 0;
             // 
             // btnDiscount
             // 
             this.btnDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscount.Location = new System.Drawing.Point(164, 10);
+            this.btnDiscount.Location = new System.Drawing.Point(105, 10);
             this.btnDiscount.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(130, 27);
+            this.btnDiscount.Size = new System.Drawing.Size(98, 27);
             this.btnDiscount.TabIndex = 1;
             this.btnDiscount.Text = "DisCount";
             this.btnDiscount.UseVisualStyleBackColor = true;
@@ -191,6 +239,7 @@
             this.btnAddFood.TabIndex = 1;
             this.btnAddFood.Text = "Add Food";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // cbbFood
             // 
@@ -207,6 +256,7 @@
             this.cbbCategory.Name = "cbbCategory";
             this.cbbCategory.Size = new System.Drawing.Size(227, 21);
             this.cbbCategory.TabIndex = 0;
+            this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -256,14 +306,6 @@
             this.flowLayoutPanel.Size = new System.Drawing.Size(462, 511);
             this.flowLayoutPanel.TabIndex = 4;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "idFood";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Count";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,6 +325,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDisCount)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numCountFood)).EndInit();
@@ -316,5 +359,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.Label label2;
     }
 }

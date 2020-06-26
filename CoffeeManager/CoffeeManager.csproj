@@ -51,11 +51,14 @@
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\BillDAL.cs" />
     <Compile Include="DAL\BillInforDAL.cs" />
+    <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\BillMenuDAL.cs" />
+    <Compile Include="DAL\FoodDAL.cs" />
     <Compile Include="DAL\TableDAL.cs" />
     <Compile Include="DTO\BillDTO.cs" />
     <Compile Include="DTO\BillInforDTO.cs" />
-    <Compile Include="DTO\BillMenu.cs" />
+    <Compile Include="DTO\BillMenuDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FoodDTO.cs" />
     <Compile Include="DTO\TableFoodDTO.cs" />

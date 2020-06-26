@@ -47,5 +47,42 @@ namespace CoffeeManager.DAL
 
             return listBills;
         }
+
+        public int GetUncheckBillByIdTable(int idTable)
+        {
+            int idBill = -1;
+            string query = "SELECT * FROM dbo.Bill WHERE status = 0 AND idTable = " + idTable;
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+
+            if(dataTable.Rows.Count > 0)
+            {
+                BillDTO billDTO = new BillDTO(dataTable.Rows[0]);
+                return billDTO.Id;
+            }
+            return idBill;
+        }
+
+        public bool InsertBill(int idTable)
+        {
+            string query = "EXEC dbo.USP_InsertBill @idTable ";
+            int nResult = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { idTable });
+            return nResult > 0;
+        }
+        public int GetMaxIdBill()
+        {
+            int idBill = -1;
+            string query = "SELECT MAX(id) FROM dbo.Bill";
+            try
+            {
+                idBill = (int)DataProvider.Instance.ExecuteScalar(query);
+
+            }
+            catch (Exception)
+            {
+
+                idBill = 1;
+            }
+            return idBill;
+        }
     }
 }

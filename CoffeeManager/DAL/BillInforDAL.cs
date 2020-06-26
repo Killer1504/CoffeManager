@@ -42,22 +42,13 @@ namespace CoffeeManager.DAL
             return billInforDTOs;
         }
 
-        public List<BillMenu> LoadBillMenuByIDTable(int idTable)
+        public bool InserBillInfor(int idBill, int idFood, int countFood)
         {
-            List<BillMenu> billMenus = new List<BillMenu>();
-
-            //
-            List<BillDTO> billDTOs = DAL.BillDAL.Instance.LoadListBillByIDTable(idTable);
-            if (billDTOs.Count > 0)
-            {
-                foreach (BillDTO item in billDTOs)
-                {
-                    int idBill = item.Id;
-                    List<BillInforDTO> billInforDTOs = new List<BillInforDTO>();
-                    
-                }
-            }
-            return billMenus;
+            int nResult;
+            string query = "EXECUTE dbo.USP_InserBillInfor @idBill , @idFood , @countFood ";
+            nResult = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { idBill, idFood, countFood });
+            return nResult > 0;
         }
+
     }
 }
